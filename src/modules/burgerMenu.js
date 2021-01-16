@@ -1,7 +1,6 @@
 function menu(){
 
-    const burgerMenu = document.querySelector('.menu-button'),
-            topMenu = document.querySelector('.top-menu'),
+    const topMenu = document.querySelector('.top-menu'),
             menuItems = [...document.querySelectorAll('li.scroll')],
             popupMenu = document.querySelector('.popup-menu'),
             box = topMenu.getBoundingClientRect(),
@@ -55,12 +54,12 @@ function menu(){
         };
 
         for(let anchor of menuItems){
-                anchor.querySelector('a').addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const blockID = anchor.querySelector('a').getAttribute('href');
-                
-                    scrolling(blockID);
-                });
+            anchor.querySelector('a').addEventListener('click', (e) => {
+                e.preventDefault();
+                const blockID = anchor.querySelector('a').getAttribute('href');
+            
+                scrolling(blockID);
+            });
         }
     }
 
