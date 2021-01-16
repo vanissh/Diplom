@@ -3,11 +3,46 @@
 
 const headerActive = require('./modules/headerActive');
 const slider = require('./modules/sliders');
+const menu = require('./modules/burgerMenu');
 
 headerActive();
 
 slider();
-},{"./modules/headerActive":2,"./modules/sliders":3}],2:[function(require,module,exports){
+
+menu();
+},{"./modules/burgerMenu":2,"./modules/headerActive":3,"./modules/sliders":4}],2:[function(require,module,exports){
+function menu(){
+
+    const burgerMenu = document.querySelector('.menu-button');
+    const topMenu = document.querySelector('.top-menu');
+    let clientWidth = document.documentElement.clientWidth;   
+
+    window.addEventListener('resize', () => {
+        clientWidth = document.documentElement.clientWidth;
+        if(clientWidth < 768){
+            burgerMenu.style.display = 'flex';
+        } else {
+            burgerMenu.style.display = 'none'
+        }
+    });
+    
+    window.addEventListener('scroll', () => {
+        if(clientWidth < 768){
+
+            if(pageYOffset < 240){
+                topMenu.style.position === 'relative';
+            }
+            if(pageYOffset >= 240){
+                topMenu.style.position = 'fixed';
+            } 
+
+        } 
+    }) 
+    
+} 
+
+module.exports = menu;
+},{}],3:[function(require,module,exports){
 function headerActive (){
 
     const show = (elem) => {
@@ -62,7 +97,7 @@ function headerActive (){
 }
 
 module.exports = headerActive;
-},{}],3:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 'use strict';
 
 function slider(){
