@@ -1,8 +1,8 @@
 'use strict';
 
-const headerActive = require('./modules/headerActive');
-const slider = require('./modules/sliders');
-const menu = require('./modules/burgerMenu');
+import headerActive from './modules/headerActive';
+import slider from './modules/sliders';
+import menu from './modules/burgerMenu';
 
 headerActive();
 

@@ -13,11 +13,8 @@ function menu(){
 
         clientWidth = document.documentElement.clientWidth;
         
-        if(clientWidth < 768){
-            burgerMenu.style.display = 'flex';
-        } else {
-            burgerMenu.style.display = 'none'
-            topMenu.style.position = 'relative';
+        if(clientWidth >= 768){
+            topMenu.style.position = '';
         }
     });
     
@@ -26,7 +23,7 @@ function menu(){
             const box = topMenu.getBoundingClientRect();
 
             if(pageYOffset < top){
-                topMenu.style.position = 'relative';
+                topMenu.style.position = '';
             }
 
             if(box.top < 0){
@@ -71,4 +68,4 @@ function menu(){
 
 } 
 
-module.exports = menu;
+export default menu;

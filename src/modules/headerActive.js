@@ -51,4 +51,4 @@ function headerActive (){
     });
 }
 
-module.exports = headerActive;
+export default headerActive;

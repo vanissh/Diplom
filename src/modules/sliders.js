@@ -138,4 +138,4 @@ gallerySlider.eventListeners();
 
 }
 
-module.exports = slider;
+export default slider;
