@@ -11,6 +11,10 @@ class Validator{
                 ['notEmpty'],
                 ['pattern', 'name']
             ],
+            [`${selector}-discount`]: [
+                ['notEmpty'],
+                ['pattern', 'discount']
+            ],
         };
         this.elementsForm = [...this.form.elements].filter(item => {
             return item.tagName.toLowerCase() !== 'button' &&
@@ -111,6 +115,10 @@ class Validator{
 
         if(!this.pattern.name){
             this.pattern.name = /^[А-яё\ ]{2,50}$/i;
+        }
+
+        if(!this.pattern.discount){
+            this.pattern.discount = /^[А-яё\ \d]{2,50}$/i;
         }
     } 
 }

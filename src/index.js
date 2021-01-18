@@ -11,6 +11,8 @@ import sendData from './modules/sendData';
 
 headerActive();
 
+maskPhone('.phone');
+
 slider();
 
 menu();
@@ -18,7 +20,5 @@ menu();
 showArrow();
 
 calc();
-
-maskPhone();
 
 sendData(Validator);

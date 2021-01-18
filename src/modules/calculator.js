@@ -16,8 +16,13 @@ function calc(){
         }
     };
 
-    const form = document.querySelector('#card_order.main'),
-        time = form.querySelector('.time'),
+    const form = document.querySelector('#card_order.main');
+
+    if(!form){
+        return;
+    }
+    
+    const time = form.querySelector('.time'),
         timeInput = [...time.querySelectorAll('input')],
         totalPrice = form.querySelector('#price-total'),
         clubs = [...form.querySelectorAll('.club')],
@@ -31,7 +36,7 @@ function calc(){
     });
     
     const makeDiscount = () => {
-        if(priceMessage.value.toUpperCase() === 'ТЕЛО2020' && flag){
+        if(priceMessage.value.toUpperCase().trim() === 'ТЕЛО2020' && flag){
                 price *= 0.7;
                 totalPrice.textContent = Math.ceil(price, -1);
                 flag = false; 

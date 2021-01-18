@@ -56,7 +56,7 @@ function sendData(Validator){
         }
 
         if(form.querySelector('p.personal-data') && !form.querySelector('p.personal-data').querySelector('input').checked){
-            console.log(form.querySelector('p.personal-data').querySelector('input'));
+
             consentMes.textContent = 'Необходимо подтвердить согласие на обработку данных!';
             form.append(consentMes);
             return;
@@ -69,7 +69,7 @@ function sendData(Validator){
         const inputs = form.querySelectorAll('input');
 
         if(form.closest('.popup')){
-            console.log(form.closest('.popup'));
+            
             form.closest('.popup').style.display = 'none';
             form.closest('.popup').classList.toggle('active');
         }
