@@ -31,6 +31,17 @@ function sendData(){
         show(elem);
     }
 
+    maskPhone('.phone');
+    const validator = (e, id) => {
+
+        const valid = new Validator({
+            selector: id,
+        });
+    
+        valid.init();
+        return valid.forSubmit(e);
+    };
+
     document.addEventListener('submit', (e) => {
         e.preventDefault();
         
@@ -39,6 +50,10 @@ function sendData(){
         if(target.matches('#card_order') || target.matches('#banner-form')
                 || target.matches('#form1') || target.matches('#form2') || target.matches('#footer_form')){
             form = target;  
+        }
+
+        if(!validator(e, form.id)){
+            return;
         }
 
         if(form.querySelector('p.personal-data') && !form.querySelector('p.personal-data').querySelector('input').checked){
@@ -66,13 +81,23 @@ function sendData(){
         formData.forEach((val, key) => {
             body[key] = val;
         });
-        console.log(body);
 
         inputs.forEach(item => {
+            if(item.classList.contains('name') ||
+                item.classList.contains('phone') ||
+                   item.classList.contains('discount')){
             item.value = '';
+            };
         });
+
         if(form.querySelector('p.personal-data')){
             form.querySelector('p.personal-data').querySelector('input').checked = false;
+        }
+
+        if(form.id === 'card_order' && form.className === 'main'){
+            form.querySelector('#m1').checked = true;
+            form.querySelector('#card_leto_schelkovo').checked = true;
+            form.querySelector('#price-total').textContent = 2999;
         }
         
         postData(body)
