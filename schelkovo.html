@@ -8,6 +8,9 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;subset=cyrillic" rel="stylesheet">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.min.css">
+
+    <script src="src/modules/sendData.js" defer></script>
+    <script src="dist/bundle.js" defer></script>
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
 </head>
 <body>
@@ -347,6 +350,7 @@
     <h2>Фотогалерея</h2>
     <div class="gallery-bg">
         <div class="wrapper">
+            <div id="serviceWrap" class="wrapper" style="position: relative">
             <div class="gallery-slider">
                 <div class="slide">
                     <img src="images/gallery/photo1.jpg" alt="">
@@ -363,8 +367,26 @@
                 <div class="slide">
                     <img src="images/gallery/photo5.jpg" alt="">
                 </div>
+                <div class="slider-arrow prev">
+                    <span>
+                        <i class="fa fa-angle-left"></i>
+                    </span>
+                </div>
+                <div class="slider-arrow next">
+                    <span>
+                        <i class="fa fa-angle-right"></i>
+                    </span>
+                </div>
+                <ul class="slider-dots" style="display: flex">
+                    <li class=""><button></button></li>
+                    <li class=""><button></button></li>
+                    <li class=""><button></button></li>
+                    <li class=""><button></button></li>
+                    <li class=""><button></button></li>
+                </ul>
             </div>
         </div>
+    </div>
     </div>
 </section>
 <section id="services">

@@ -25,29 +25,28 @@ function headerActive (){
             toggle(clubList);
         }
 
-        if(target.closest('.open-popup') || 
-            (target.closest('.overlay') || target.closest('.close_icon')) &&
-                visitForm.classList.contains('active')){
+        if(target.closest('.open-popup')){
             toggle(visitForm);
         }
 
-        if(target.closest('.callback-btn') || 
-                (target.closest('.overlay') || target.closest('.close_icon')) && 
-                    callbackForm.classList.contains('active')){
+        if(target.closest('.callback-btn-header')){
             toggle(callbackForm);
         }
 
-        if(target.closest('.fixed-gift') && target.closest('img') || 
-            (target.closest('.overlay') || target.closest('.close_icon')) && 
-                gift .classList.contains('active')){
+        if(target.closest('.fixed-gift') && target.closest('img')){
             toggle(gift);
 
             if(target.closest('.fixed-gift')){
                 target.closest('.fixed-gift').remove();
-            }
-            
+            } 
         }
 
+        if(target.closest('.popup') && target.closest('.popup').classList.contains('active') &&
+            (target.closest('.overlay') || target.closest('.close_icon') ||
+                target.closest('.close-btn'))){
+
+            toggle(target.closest('.popup')); 
+        }
     });
 }
 
