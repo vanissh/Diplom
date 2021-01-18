@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "bundle.js",
-  "dependencies": {
-    "uniq": "^1.0.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
