@@ -8,10 +8,6 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;subset=cyrillic" rel="stylesheet">
     <link rel="stylesheet" href="css/font-awesome.min.css">
   
-    <script src="src/modules/maskPhone.js" defer></script>
-    <script src="src/modules/validator.js" defer></script>
-    <script src="src/modules/calculator.js" defer></script>
-    <script src="src/modules/sendData.js" defer></script>
     <script src="dist/bundle.js" defer></script>
 
     <link rel="stylesheet" href="css/style.min.css">
@@ -479,7 +475,7 @@
                         <div class="choose-club">
                             <h5>Выбрать клуб</h5>
                             <div class="club">
-                                <input type="radio" id="footer_leto_mozaika" name="club-name" value="mozaika"><label
+                                <input type="radio" id="footer_leto_mozaika" name="club-name" value="mozaika" checked><label
                                     for="footer_leto_mozaika">
                                 <h6>Тело «Мозаика»</h6>
                                 <p>Россия, Москва, 7-я Кожуховская ул.,&nbsp;9</p>
@@ -497,7 +493,7 @@
                             <p>Единый телефон</p>
                             <p class="tel">+7 (800) 555-64-47</p>
                             <p class="input-text"><input type="tel" name="phone" id="footer_form-phone"
-                                                         required="" placeholder="Ваш номер телефона..."></p>
+                                        class="phone" required="" placeholder="Ваш номер телефона..."></p>
                             <button class="btn callback-btn" type="submit" data-popup="#callback_form">Перезвоните мне
                             </button>
                         </div>

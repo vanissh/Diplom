@@ -1,7 +1,5 @@
-'use strict';
-
 class Validator{
-    constructor({selector}){
+    constructor({selector, message}){
         this.form =  document.querySelector('#' + selector);
         this.pattern = {};
         this.method = {
@@ -19,6 +17,7 @@ class Validator{
                 item.type !== 'button';
         });
         this.error = new Set();
+        this.message = message;
     }
 
     init(){
@@ -57,11 +56,8 @@ class Validator{
                 return method.every(item =>
                     validatorMethod[item[0]](elem, 
                         this.pattern[item[1]]));
-            }
-        } else {
-            console.warn('Необходимо передать id полей ввода и методы проверки этих полей');
         }
-        
+    }
         return true;
     }
 
@@ -82,15 +78,10 @@ class Validator{
         if(elem.nextElementSibling && elem.nextElementSibling.classList.contains('validator-error')){
             return;
         }
-        const errorDiv = document.createElement('div');
-        errorDiv.textContent = 'Ошибка в этом поле';
-        errorDiv.classList.add('validator-error');
-        elem.insertAdjacentElement('afterend', errorDiv);
-
-        if(elem.closest('#form1')){
-            errorDiv.style.bottom = '23px';
-        }
-
+        
+        this.message.textContent = 'Ошибка при вводе';
+        this.message.classList.add('validator-error');
+        this.form.append(this.message);
     }
 
     showSuccess(elem){
@@ -106,13 +97,6 @@ class Validator{
         style.textContent = `
             input.error {
                 box-shadow: 0 0 0 2px rgb(161, 33, 50);
-            }
-            input.success{
-            }
-            .validator-error {
-                position: relative;
-                font-size: 12px;
-                color: white;
             }
         `;
 
@@ -130,4 +114,6 @@ class Validator{
         }
     } 
 }
+
+export default Validator;
 

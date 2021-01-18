@@ -1,4 +1,4 @@
-function sendData(){
+function sendData(Validator){
     let form;
 
     const popUp = document.querySelector('#thanks'),
@@ -6,7 +6,6 @@ function sendData(){
         popUpPreloader = document.querySelector('#preloader'),
         consentMes = document.createElement('div');
 
-    consentMes.textContent = 'Необходимо подтвердить согласие на обработку данных!';
     consentMes.classList.add('consent');
 
     const postData = (body) => {
@@ -31,11 +30,11 @@ function sendData(){
         show(elem);
     }
 
-    maskPhone('.phone');
-    const validator = (e, id) => {
+    const validator = (e, id, message) => {
 
         const valid = new Validator({
             selector: id,
+            message: message,
         });
     
         valid.init();
@@ -52,12 +51,13 @@ function sendData(){
             form = target;  
         }
 
-        if(!validator(e, form.id)){
+        if(!validator(e, form.id, consentMes)){
             return;
         }
 
         if(form.querySelector('p.personal-data') && !form.querySelector('p.personal-data').querySelector('input').checked){
-            console.log(form.querySelector('p.personal-data').querySelector('input'))
+            console.log(form.querySelector('p.personal-data').querySelector('input'));
+            consentMes.textContent = 'Необходимо подтвердить согласие на обработку данных!';
             form.append(consentMes);
             return;
         } else {
@@ -127,4 +127,4 @@ function sendData(){
     });
 }
 
-sendData();
+export default sendData;

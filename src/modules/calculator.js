@@ -16,7 +16,7 @@ function calc(){
         }
     };
 
-    const form = document.querySelector('#card_order-main'),
+    const form = document.querySelector('#card_order.main'),
         time = form.querySelector('.time'),
         timeInput = [...time.querySelectorAll('input')],
         totalPrice = form.querySelector('#price-total'),
@@ -66,4 +66,4 @@ function calc(){
     });
 }
 
-calc();
+export default calc;
