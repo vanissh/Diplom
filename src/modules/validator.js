@@ -12,7 +12,6 @@ class Validator{
                 ['pattern', 'name']
             ],
             [`${selector}-discount`]: [
-                ['notEmpty'],
                 ['pattern', 'discount']
             ],
         };
@@ -118,7 +117,7 @@ class Validator{
         }
 
         if(!this.pattern.discount){
-            this.pattern.discount = /^[А-яё\ \d]{2,50}$/i;
+            this.pattern.discount = /^[А-яё\ \d]{0,50}$/i;
         }
     } 
 }

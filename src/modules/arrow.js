@@ -5,7 +5,7 @@ function showArrow(){
     arrow.style.display = 'none';
     document.addEventListener('scroll', function() {
         const elemTop = elem.getBoundingClientRect().top,
-            isVisible = (elemTop < -(elem.offsetHeight*0.5));
+            isVisible = (elemTop < -(elem.offsetHeight*0.5 + 200));
 
         if(isVisible){
             arrow.style.display = 'block';
