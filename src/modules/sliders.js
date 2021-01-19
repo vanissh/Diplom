@@ -1,4 +1,4 @@
-function slider(){
+function slider(SliderCarusel){
 
 class Slider {
 
@@ -122,9 +122,15 @@ class Slider {
 const headSlider = new Slider('.head-slider', '.slide');
 headSlider.startSlide();
 
-// 2 слайдер
+//2 слайдер
 
-const servSlider = new Slider('.head-slider', '.slide');
+const carusel = new SliderCarusel({
+    section: '#services',
+    main: '.services-slider',
+    wrap: '.items',
+});
+
+carusel.init();
 
 // 3 слайдер
     

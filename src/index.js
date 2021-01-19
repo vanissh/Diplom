@@ -8,12 +8,13 @@ import maskPhone from './modules/maskPhone';
 import calc from './modules/calculator';
 import Validator from './modules/validator';
 import sendData from './modules/sendData';
+import SliderCarusel from './modules/sliderCarusel';
 
 headerActive();
 
 maskPhone('.phone');
 
-slider();
+slider(SliderCarusel);
 
 menu();
 
